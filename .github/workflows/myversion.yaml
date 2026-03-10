@@ -1,0 +1,19 @@
+name: myownversion
+on: 
+  push: 
+    branches: ["main"]
+jobs:
+  first-workflow-job:
+    name :  first job
+    runs-on: ubuntu
+    steps:
+      - name: first step 
+        run: echo "hello starting up"
+        shell: bash
+      - name: second step 
+        uses: actions/checkout@v6 
+        run:  "mvn clean package"
+        shell: bash 
+      - name: latest
+        run: "mnv test" 
+        shell: bash
